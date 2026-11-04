@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none">
+  <defs>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#BFC3C8" />
+      <stop offset="100%" stop-color="#787F8A" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1000" fill="#08090B"/>
+  <g fill="url(#silverGrad)">
+    <!-- Top Horizontal Bar -->
+    <rect x="295" y="290" width="245" height="55" />
+    <!-- Inner L-Bar -->
+    <rect x="295" y="365" width="115" height="55" />
+    <!-- Vertical Leg with 45-degree angle cut at bottom -->
+    <polygon points="410,350 470,350 470,610 410,710" />
+    <!-- Parallel Inner Vertical Leg -->
+    <polygon points="485,350 540,350 540,540 485,615" />
+    <!-- Top-Right Arrow Pointing Upward -->
+    <polygon points="555,290 705,290 555,420" />
+  </g>
+</svg>

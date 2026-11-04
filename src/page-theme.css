@@ -1,0 +1,55 @@
+/* Interior pages share the home page's canvas, glass, and accent hierarchy. */
+.portfolio-page {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  background-image: radial-gradient(ellipse 850px 580px at 95% 180px, #d96a3b16, transparent 75%), radial-gradient(ellipse 650px 450px at 5% 900px, #f2ede407, transparent 75%);
+}
+.portfolio-page h1::after {
+  content: '';
+  display: block;
+  width: 52px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 99px;
+  margin-top: 22px;
+}
+.portfolio-page span[class*="uppercase"][class*="tracking-"][class*="font-bold"]:not([class*="bg-"]) {
+  color: var(--accent);
+}
+.portfolio-page .liquid-glass,
+.portfolio-page form {
+  border-radius: 24px;
+}
+.portfolio-page form {
+  background: linear-gradient(135deg, #f2ede414, #171614c9 45%, #d96a3b08);
+  border: 1px solid #f2ede438;
+  box-shadow: inset 0 1px 1px #f2ede43d, 0 14px 42px #00000047;
+  backdrop-filter: blur(26px) saturate(125%);
+  -webkit-backdrop-filter: blur(26px) saturate(125%);
+}
+.portfolio-page :is(button,a)[class*="bg-[#D96A3B]"] {
+  color: #101010;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 1px #f2ede44d, 0 7px 24px #d96a3b15;
+}
+.portfolio-page :is(input,textarea,select) {
+  border-radius: 12px;
+  background-color: #101010b3;
+  color: var(--text-primary);
+  border-color: #f2ede429;
+}
+.portfolio-page :is(input,textarea,select):focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px #d96a3b15;
+}
+.portfolio-page select option { background: #171614; color: #f2ede4; }
+.portfolio-page input::placeholder,
+.portfolio-page textarea::placeholder { color: #a99e92; }
+.portfolio-page :is(button,a):hover:not([class*="bg-[#D96A3B]"]) > svg {
+  color: var(--accent);
+}
+.portfolio-page .project-card { border-radius: 16px; }
+.portfolio-page .project-card > .liquid-glass { border-radius: 0; }
+@supports not (backdrop-filter: blur(1px)) {
+  .portfolio-page form { background: #201c18; }
+}

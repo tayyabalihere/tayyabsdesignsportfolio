@@ -1,0 +1,138 @@
+{
+  "categories": [
+    {
+      "id": "cat-jerseys",
+      "name": "Jerseys"
+    },
+    {
+      "id": "cat-tshirts",
+      "name": "T-Shirts"
+    },
+    {
+      "id": "cat-fullsleeves",
+      "name": "Full Sleeves"
+    },
+    {
+      "id": "cat-hoodies",
+      "name": "Hoodies"
+    },
+    {
+      "id": "cat-trousers",
+      "name": "Trousers"
+    },
+    {
+      "id": "cat-jackets",
+      "name": "Jackets"
+    },
+    {
+      "id": "cat-vest",
+      "name": "Vest"
+    }
+  ],
+  "brands": [
+    {
+      "id": "brand-1",
+      "name": "NOCTURNE ATELIER",
+      "slug": "nocturne-atelier",
+      "logo_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200",
+      "created_at": "2026-09-04T22:38:25.817Z"
+    },
+    {
+      "id": "brand-2",
+      "name": "VELOCITY SPEEDWEAR",
+      "slug": "velocity-speedwear",
+      "logo_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
+      "created_at": "2026-09-04T22:38:25.818Z"
+    },
+    {
+      "id": "brand-3",
+      "name": "AURA STREETWEAR",
+      "slug": "aura-streetwear",
+      "logo_url": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=200",
+      "created_at": "2026-09-04T22:38:25.818Z"
+    }
+  ],
+  "collections": [
+    {
+      "id": "col-1788564414717",
+      "brand_id": "brand-rashq",
+      "name": "Vol. 1 Dastaan",
+      "slug": "Vol. 1 Dastaan",
+      "description": "Dastaan",
+      "banner_image": "/uploads/img_1788568274646_666627952.webp",
+      "is_active": 1,
+      "sort_order": 1,
+      "created_at": "2026-09-04T23:26:54.734Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-1788568593408",
+      "collection_id": "col-1788564414717",
+      "category_id": "cat-tshirts",
+      "title": "Pride of Pakistan T Shirt",
+      "slug": "pride-of-pakistan-t-shirt",
+      "description": "PRIDE OF PAKISTAN T SHIRT",
+      "images": [
+        "/uploads/img_1788568478519_542423130.png"
+      ],
+      "sizes": [],
+      "price": null,
+      "stock_quantity": null,
+      "is_published": 1,
+      "created_at": "2026-09-05T00:36:33.414Z",
+      "updated_at": "2026-09-05T00:36:33.414Z"
+    },
+    {
+      "id": "prod-1788568370836",
+      "collection_id": "col-1788564414717",
+      "category_id": "cat-tshirts",
+      "title": "BLACK SIGNATURE DISTRICT T-SHIRT",
+      "slug": "black-signature-district-t-shirt",
+      "description": "BLACK SIGNATURE DISTRICT T-SHIRT",
+      "images": [
+        "/uploads/img_1788568399899_895881435.png"
+      ],
+      "sizes": [],
+      "price": null,
+      "stock_quantity": null,
+      "is_published": 1,
+      "created_at": "2026-09-05T00:32:50.843Z",
+      "updated_at": "2026-09-05T00:33:33.258Z"
+    },
+    {
+      "id": "prod-1788568056041",
+      "collection_id": "col-1788564414717",
+      "category_id": "cat-tshirts",
+      "title": "SAND PAKISTAN CLASSIC T-SHIRT",
+      "slug": "-sand-pakistan-classic-t-shirt",
+      "description": "SAND PAKISTAN CLASSIC T-SHIRT",
+      "images": [
+        "/uploads/img_1788568048118_341449028.png"
+      ],
+      "sizes": [],
+      "price": null,
+      "stock_quantity": null,
+      "is_published": 1,
+      "created_at": "2026-09-05T00:27:36.058Z",
+      "updated_at": "2026-09-05T00:27:36.058Z"
+    },
+    {
+      "id": "prod-1788564933124",
+      "collection_id": "col-1788564414717",
+      "category_id": "cat-tshirts",
+      "title": "WHITE RADIO PAKISTAN T-SHIRT",
+      "slug": "white-radio-pakistan-t-shirt",
+      "description": "WHITE RADIO PAKISTAN T-SHIRT",
+      "images": [
+        "/uploads/img_1788568088510_436394641.png"
+      ],
+      "sizes": [],
+      "price": null,
+      "stock_quantity": null,
+      "is_published": 1,
+      "created_at": "2026-09-04T23:35:33.129Z",
+      "updated_at": "2026-09-05T00:28:12.283Z"
+    }
+  ]
+}
