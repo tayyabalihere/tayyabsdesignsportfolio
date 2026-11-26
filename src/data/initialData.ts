@@ -1390,7 +1390,10 @@ export const initialTestimonials: Testimonial[] = [
 ];
 
 export const initialSiteSettings: SiteSettings = {
-  metaTitle: 'Tayyabs.Designs | Independent Apparel & Clothing Designer (50+ Brand Collaborations)',
+  instagramUrl: 'https://www.instagram.com/tayyabs.designs/',
+  tiktokUrl: 'https://www.tiktok.com/@tayyabs.designs',
+  pinterestUrl: 'https://www.pinterest.com/alitayyabhere/',
+  metaTitle: 'TAYYABS DESIGNS',
   metaDescription: 'Official portfolio of Tayyabs.Designs - Professional clothing and apparel designer with 50+ brand collaborations across streetwear, cultural garments, jerseys, and production tech packs.',
   whatsappNumber: '+92 337 2993445',
   whatsappMessage: 'Hello Tayyabs.Designs, I saw your portfolio and would like to start a clothing project.',

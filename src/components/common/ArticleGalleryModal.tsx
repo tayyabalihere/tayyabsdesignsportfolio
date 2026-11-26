@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { portfolioImage } from '../../data/portfolioImages';
 import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import type { ApparelProduct } from '../../types';
@@ -17,6 +18,14 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
   initialIndex = 0,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousFocus = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+    return () => previousFocus?.focus();
+  }, [isOpen]);
 
   // Normalize images array
   const images: string[] = (() => {
@@ -49,7 +58,13 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === 'Tab') {
+        const controls = [...(dialogRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') || [])];
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (e.shiftKey && (document.activeElement === first || document.activeElement === dialogRef.current)) { e.preventDefault(); last?.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first?.focus(); }
+      } else if (e.key === 'Escape') {
         onClose();
       } else if (e.key === 'ArrowLeft') {
         setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
@@ -80,6 +95,11 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
   // This guarantees the modal is never constrained by parent CSS transforms, filters, or z-index stacking contexts
   return createPortal(
     <div
+      ref={dialogRef}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="article-gallery-title"
+      tabIndex={-1}
       className="fixed inset-0 top-0 left-0 w-screen h-screen z-[99999] bg-[#101010]/95 backdrop-blur-xl flex flex-col justify-between p-4 sm:p-6 overflow-hidden select-none animate-in fade-in duration-200"
       onClick={onClose}
     >
@@ -95,7 +115,7 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
             </span>
           )}
           <div>
-            <h3 className="text-base sm:text-lg font-editorial-heading font-black text-[#F2EDE4] tracking-tight">
+            <h3 id="article-gallery-title" className="text-base sm:text-lg font-editorial-heading font-black text-[#F2EDE4] tracking-tight">
               {product.title}
             </h3>
             {images.length > 1 && (
@@ -112,6 +132,7 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             title="Open original image in new tab"
+            aria-label="Open original image in new tab"
             className="p-2.5 rounded bg-[#201C18] hover:bg-[#F2EDE4] text-[#D1C7BB] hover:text-[#101010] border border-[#D1C7BB]/25 transition-colors cursor-pointer"
           >
             <ExternalLink className="w-4 h-4" />
@@ -121,6 +142,7 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
             type="button"
             onClick={onClose}
             title="Close viewer (Esc)"
+            aria-label="Close image viewer"
             className="p-2.5 rounded bg-[#201C18] hover:bg-[#F2EDE4] text-[#D1C7BB] hover:text-[#101010] border border-[#D1C7BB]/25 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
@@ -139,6 +161,7 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
             type="button"
             onClick={handlePrev}
             title="Previous image (Left Arrow)"
+            aria-label="Previous image"
             className="absolute left-2 sm:left-4 z-20 p-3 sm:p-3.5 rounded-full bg-[#101010]/80 hover:bg-[#F2EDE4] text-[#D1C7BB] hover:text-[#101010] border border-[#D1C7BB]/40 backdrop-blur shadow-2xl transition-all hover:scale-105 cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -148,7 +171,7 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
         {/* High-Resolution Center Image */}
         <div className="w-full h-full flex items-center justify-center overflow-hidden">
           <img
-            src={currentImage}
+            src={portfolioImage(currentImage)}
             alt={`${product.title} - View ${currentIndex + 1}`}
             className="max-h-full max-w-full object-contain rounded-sm border border-[#D1C7BB]/30 shadow-[0_0_50px_rgba(0,0,0,0.85)] transition-all duration-300 select-none"
             onError={(e) => {
@@ -164,6 +187,7 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
             type="button"
             onClick={handleNext}
             title="Next image (Right Arrow)"
+            aria-label="Next image"
             className="absolute right-2 sm:right-4 z-20 p-3 sm:p-3.5 rounded-full bg-[#101010]/80 hover:bg-[#F2EDE4] text-[#D1C7BB] hover:text-[#101010] border border-[#D1C7BB]/40 backdrop-blur shadow-2xl transition-all hover:scale-105 cursor-pointer"
           >
             <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -184,6 +208,8 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
                 key={idx}
                 type="button"
                 onClick={() => setCurrentIndex(idx)}
+                aria-label={`View image ${idx + 1}`}
+                aria-pressed={currentIndex === idx}
                 className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded overflow-hidden border transition-all shrink-0 cursor-pointer ${
                   currentIndex === idx
                     ? 'border-[#F2EDE4] ring-2 ring-[#F2EDE4] scale-105 shadow-lg'
@@ -191,7 +217,7 @@ export const ArticleGalleryModal: React.FC<ArticleGalleryModalProps> = ({
                 }`}
               >
                 <img
-                  src={img}
+                  src={portfolioImage(img, 'small')}
                   alt={`Thumbnail ${idx + 1}`}
                   className="w-full h-full object-cover"
                 />

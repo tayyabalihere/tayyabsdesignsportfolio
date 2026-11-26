@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, lazy, Suspense } from 'react';
 import { gmailInquiryUrl } from '../data/contactLinks';
 import { ArrowLeft, CheckCircle, ArrowUpRight, Image, Compass, PenTool, ZoomIn } from 'lucide-react';
 import { useCMS } from '../context/CMSContext';
 import { ProjectCard } from '../components/common/ProjectCard';
-import { GarmentViewer3D } from '../components/common/GarmentViewer3D';
+const GarmentViewer3D = lazy(() => import('../components/common/GarmentViewer3D').then(module => ({ default: module.GarmentViewer3D })));
 import { Badge } from '../components/common/Badge';
 import { NotFoundPage } from './NotFoundPage';
 
@@ -17,6 +17,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ slug, navi
   const project = getProjectBySlug(slug);
 
   const [activeArtworkTab, setActiveArtworkTab] = useState<'front' | 'back'>('front');
+  const [show3D, setShow3D] = useState(false);
 
   // Magnifier Zoom Lens state
   const [zoomPos, setZoomPos] = useState({ x: 0, y: 0, show: false });
@@ -237,7 +238,7 @@ export const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ slug, navi
               </h2>
             </div>
           </div>
-          <GarmentViewer3D project={project} />
+          {show3D ? <Suspense fallback={<p className="p-8 text-center" role="status">Loading 3D preview…</p>}><GarmentViewer3D project={project} /></Suspense> : <div className="p-10 text-center"><p className="mb-5 text-white/60">Explore the garment in an interactive 3D preview.</p><button className="studio-pill" onClick={() => setShow3D(true)}>Open 3D preview</button></div>}
         </div>
 
         {/* FINAL DESIGNS SHOWCASE WITH INTERACTIVE MAGNIFIER LENS */}

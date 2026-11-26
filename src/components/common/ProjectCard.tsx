@@ -1,3 +1,4 @@
+import { portfolioImage } from '../../data/portfolioImages';
 import React, { useState } from 'react';
 import { ArrowUpRight, Shirt, Ruler, Sparkles, Layers, Zap } from 'lucide-react';
 import type { Project } from '../../types';
@@ -159,7 +160,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
           {/* Image */}
           <img
-            src={currentImg}
+            src={portfolioImage(currentImg || '')}
             alt={`${project.title} - ${project.brandName} apparel design`}
             loading="lazy"
             className={`w-full h-full ${compact ? 'object-contain' : 'object-cover'} object-center transition-all duration-700 ease-out group-hover:scale-[1.07] ${

@@ -1,0 +1,30 @@
+{
+  "reference": "https://www.emrxarauysl.com/",
+  "date": "2026-11-26",
+  "reference_viewports": [
+    "1440x900",
+    "558x670"
+  ],
+  "changes": [
+    "Measured mobile section headings: two lines, 67.2px maximum, 0.9 line height.",
+    "Measured service headings: 142px desktop, 104px minimum mobile, 28.8px row padding after first row; blue hover state and diagonal arrow.",
+    "Closed initial service accordion; hover opens exclusively, click remains available.",
+    "Matched work card proportions and 24px gaps; preserved original project navigation.",
+    "Moved mobile testimonial summary below heading; matched card widths, spacing and backgrounds while retaining existing client content.",
+    "Repeated short marquee groups without duplicate keyboard stops to prevent empty loops; preserved movement speed.",
+    "Added mobile directional header visibility; preserved desktop navigation, no navbar underline.",
+    "Aligned footer columns, status display and blue closing panel; retained real email, WhatsApp and directory links.",
+    "Reduced optional archive filter spacing; retained search, filters and case studies."
+  ],
+  "verification": {
+    "build": "npm run build passed; final Vite production build passed after final refinements.",
+    "mobile": "320px, 390px and 558px: no horizontal overflow. At 320px logo ends at x91, status occupies x103-249, menu occupies x261-305.",
+    "desktop": "1440px: measured service trigger heights 142px, heading font 135.36px; hover opens one panel.",
+    "menu": "Mobile open/close verified.",
+    "filtered_archive": "Palestine search returns one project, one row; 1524px group width at 320px viewport prevents empty loop.",
+    "console": "No captured browser console errors.",
+    "user_preferences": "Transparent PNG favicon, TAYYABS DESIGNS title, six-second repeating typing heading and no navbar underline retained.",
+    "preview": "Returned to homepage, temporary viewport override reset."
+  },
+  "scope": "Public reference design and interactions compared. Existing user portrait, projects and business content retained; reference client ratings and business claims not copied. Protected Shop and Contact internals remain outside the prior verified public feature audit."
+}

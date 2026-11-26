@@ -130,7 +130,7 @@ export const CMSProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [settings, setSettings] = useState<SiteSettings>(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-    const storedSettings: SiteSettings = saved ? JSON.parse(saved) : initialSiteSettings;
+    const storedSettings: SiteSettings = { ...initialSiteSettings, ...(saved ? JSON.parse(saved) : {}) };
     // Apply the requested contact update to browsers with existing saved settings.
     if (localStorage.getItem('tayyabs_whatsapp_revision') !== '923372993445') {
       return { ...storedSettings, whatsappNumber: initialSiteSettings.whatsappNumber };

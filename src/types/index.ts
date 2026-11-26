@@ -137,6 +137,9 @@ export interface Testimonial {
 }
 
 export interface SiteSettings {
+  instagramUrl?: string;
+  tiktokUrl?: string;
+  pinterestUrl?: string;
   whatsappNumber: string;
   whatsappMessage: string;
   emailAddress: string;

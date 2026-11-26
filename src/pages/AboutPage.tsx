@@ -1,13 +1,12 @@
 import React from 'react';
 import { ArrowUpRight, ShieldCheck, Cpu } from 'lucide-react';
-import { generateArtworkSvg } from '../data/artworkGenerator';
 
 interface AboutPageProps {
   navigate: (path: string) => void;
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
-  const workspaceMockup = generateArtworkSvg('minimal-techpack', 'TAYYABS WORKSPACE', 'front');
+  const workspaceMockup = '/portrait/tayyab-hero.webp';
 
   const skillsList = [
     { title: 'Adobe Illustrator', desc: 'Precision vector node editing, print layout scaling, and stroke profiling.' },
@@ -59,8 +58,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
           <div className="lg:col-span-6 liquid-glass bg-[#171614] border border-[#D1C7BB]/25 p-4 rounded-2xl">
             <img
               src={workspaceMockup}
-              alt="Tayyabs.Designs Workspace & Tech Pack Setup"
-              className="w-full aspect-[4/3] object-cover rounded"
+              alt="Tayyab Ali, apparel designer"
+              className="w-full aspect-[4/5] object-cover rounded grayscale"
             />
             <span className="block text-center text-[10px] uppercase tracking-widest text-[#A99E92] mt-3">
               Tayyabs.Designs Tech Pack & Apparel Vector Studio

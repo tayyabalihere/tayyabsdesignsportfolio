@@ -60,6 +60,18 @@ export const SiteSettingsManager: React.FC = () => {
           </div>
         </div>
 
+        <fieldset className="space-y-4">
+          <legend className="font-bold text-[#F2EDE4] uppercase tracking-wider mb-4">Social profiles</legend>
+          {([
+            ['instagramUrl', 'Instagram'],
+            ['tiktokUrl', 'TikTok'],
+            ['pinterestUrl', 'Pinterest'],
+          ] as const).map(([field, label]) => <div key={field}>
+            <label htmlFor={field} className="block font-bold text-[#F2EDE4] uppercase tracking-wider mb-2">{label} profile URL</label>
+            <input id={field} type="url" value={formData[field] || ''} onChange={event => setFormData({ ...formData, [field]: event.target.value })} placeholder="https://" className="w-full bg-[#101010] border border-[#D1C7BB]/20 p-3 rounded text-[#F2EDE4] focus:outline-none" />
+          </div>)}
+        </fieldset>
+
         <div>
           <label className="block font-bold text-[#F2EDE4] uppercase tracking-wider mb-2">
             Consultation Booking URL

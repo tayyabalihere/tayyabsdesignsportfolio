@@ -1,0 +1,62 @@
+{
+  "reference": "https://www.emrxarauysl.com/",
+  "scope": "Publicly accessible portfolio; user branding, artwork, portrait and CMS content retained.",
+  "observations": [
+    {
+      "feature": "Hero artwork orbit",
+      "implementation": "Eight double-sided cards; per-card height, depth opacity and stacking; masked portrait center; 30fps transform updates; paused offscreen/hidden; reduced-motion support."
+    },
+    {
+      "feature": "Navigation",
+      "implementation": "Fixed pill navigation, live Karachi clock, Works/Shop/Contact; right-aligned vertical mobile menu; Escape closes it."
+    },
+    {
+      "feature": "Client strip",
+      "implementation": "Seamless 78-second client-name/logo marquee from user CMS; hover/focus pause."
+    },
+    {
+      "feature": "Services",
+      "implementation": "Animated exclusive accordion, alternating 72-second image marquees, image links and service details."
+    },
+    {
+      "feature": "Selected work",
+      "implementation": "Two opposite-direction 56-second image marquees, hover links to existing case studies."
+    },
+    {
+      "feature": "Works archive",
+      "implementation": "Four alternating moving rows using existing project images; collapsible category/garment/year/search/sort filters; empty-state recovery."
+    },
+    {
+      "feature": "Testimonials",
+      "implementation": "Moving user-provided testimonial cards; client-story count replaces unverified reference ratings."
+    },
+    {
+      "feature": "Portfolio statistics",
+      "implementation": "CMS-derived counts animate on first visibility; reference business claims are not copied."
+    },
+    {
+      "feature": "About",
+      "implementation": "Sticky statement with reversible word-by-word scroll highlighting."
+    },
+    {
+      "feature": "Closing portrait",
+      "implementation": "User portrait with four cross markers and difference-blend text marquee at measured 18-second duration, -8-second phase."
+    },
+    {
+      "feature": "Footer",
+      "implementation": "Email/WhatsApp/inquiry and directory links, scroll-revealed blue brand panel, back-to-top and quick inquiry controls."
+    },
+    {
+      "feature": "Shop",
+      "implementation": "User published products in active collections, collection filters, photo viewer and product inquiry links."
+    }
+  ],
+  "verification": {
+    "desktop": "Hero motion and font, accordion state, work-row directions, no broken images or runtime errors.",
+    "mobile": "390px viewport: vertical menu, Shop navigation, product photo viewer and Escape close, portfolio search with image preservation, no horizontal overflow, inquiry required-field validation, blue footer reveal.",
+    "not_verified": "Reference Shop and Contact destinations expose access-code-protected Private Preview screens; their internal behavior could not be inspected. No claim of equivalence is made for protected features.",
+    "build": "npm run build passed after final changes (TypeScript and Vite).",
+    "gallery_keyboard": "Verified dialog labelling, Tab focus wrapping, Escape close and focus restoration.",
+    "scroll_motion": "Confirmed successive word colors progress from dark to light, signature transform changes over time at 18s/-8s timing, no missing optimized images, and no browser runtime errors."
+  }
+}
